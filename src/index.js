@@ -1,5 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './components/App'
+import { BrowserRouter as Router } from 'react-router-dom'
+import App from './App'
+import {ShoppingState} from './context/ShoppingContext'
 
-ReactDOM.render(<App/>,document.getElementById('app'))
+ReactDOM.render(
+    <Router>
+     <ShoppingState>
+    <App />
+    </ShoppingState>
+    </Router>
+,document.getElementById('root'))

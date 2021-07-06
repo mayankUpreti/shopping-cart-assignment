@@ -1,4 +1,5 @@
-const path=require('path')
+const path=require('path');
+
 const HtmlWebpackPlugin=require('html-webpack-plugin');
 module.exports={
     entry:'./src/index.js',
@@ -21,16 +22,30 @@ module.exports={
             {
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"]
-              }
+            },
+            {
+                test: /\.(png|svg|jpe?g|gif)$/i,
+                use: [
+                  {
+                    loader: 'url-loader',
+                    options: {
+                     
+                      limit: 8192 // in bytes
+                    },
+                  },
+                ],
+              },
         ]
     },
-    optimization: {
-        splitChunks: { chunks: "all" }
-      },
     resolve: {
         extensions: ['.js', '.jsx']
       },
-   
+      devServer: {
+        port: 3000,
+        historyApiFallback: true,
+        contentBase: './',
+        hot: true
+      },
     plugins:[
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, "src", "index.html")
