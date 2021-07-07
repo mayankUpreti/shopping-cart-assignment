@@ -12,7 +12,7 @@ const Sidebar=({category,setCategory})=>{
   return (
     <>
    
-      <div className="nav flex-column nav-pills sidebar">
+      <div className="nav flex-column nav-pills sidebar h-100">
         {
           categories && categories.map(el=>
             <div

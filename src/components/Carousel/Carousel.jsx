@@ -10,6 +10,8 @@ const CustomCarousel=({data})=>{
                     return(
                         <Carousel.Item key={el.id}>
                         <img
+                        tabIndex={0}
+                          aria-label={el.bannerImageAlt}
                           className="d-block w-100"
                           src={el.bannerImageUrl}
                           alt={el.bannerImageAlt}

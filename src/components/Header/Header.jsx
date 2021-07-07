@@ -9,21 +9,21 @@ const Header=()=>{
     const {cartitem}=useContext(ShoppingContext)
 return(
     <div className='d-flex w-100 py-2'>
-       <div className='w-25 text-center'>
-       <Link to="/"> <img src={Logo} alt='logo'/></Link>
+       <div className='col-md-3 text-center'>
+       <Link to="/"> <img src={Logo} alt='homepage'/></Link>
        </div>
-       <div className='w-50 d-flex justify-content-center align-items-end'>
-           <span className='p-3'><Link to="/home">Home</Link></span>
-           <span className='p-3'><Link to="/products">Products</Link></span>
+       <div className='col-md-6 d-flex justify-content-center align-items-end m-view'>
+           <span className='p-3'><Link className='text-dark font-weight-bold' to="/home">Home</Link></span>
+           <span className='p-3'><Link className='text-dark font-weight-bold' to="/products">Products</Link></span>
        </div>
-       <div className='w-25 d-flex flex-column justify-content-end align-items-center'>
+       <div className='col-md-3 d-flex flex-column justify-content-end align-items-center'>
            <div>
            <div className='d-flex'>
-               <span className='p-2' ><Link to="/login">Signin</Link></span>
-               <span className='p-2'><Link to="/register">Register</Link></span>
+               <span className='p-2' ><Link className='text-dark font-weight-bold' to="/login">Signin</Link></span>
+               <span className='p-2'><Link className='text-dark font-weight-bold' to="/register">Register</Link></span>
            </div>
-           <div className='nav-cart' onClick={()=>setShow(true)}>
-               <img className='text-primary' style={{height:'40px'}} src={CartSvg} alt='cart'/>
+           <div className='nav-cart' onClick={()=>setShow(true)} role='button' tabIndex='0' >
+               <img className='text-primary' style={{height:'40px'}} aria-hidden="true" src={CartSvg} alt='cart'/>
               <span>{cartitem &&cartitem.length ? cartitem.reduce(((acc,curr)=>curr.quantity+acc),0):0} items</span> 
            </div>
            </div>

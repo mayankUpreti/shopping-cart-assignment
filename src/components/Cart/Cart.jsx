@@ -21,7 +21,7 @@ const Cart=({show,setShow})=>{
         <Modal.Header  className="cart-header" closeButton>
           <Modal.Title className='cart-title'>My Cart({cartitem &&cartitem.length ? cartitem.reduce(((acc,curr)=>curr.quantity+acc),0):0} items)</Modal.Title>
         </Modal.Header>
-        <Modal.Body className='cart-body'>
+        <Modal.Body className={` cart-body ${ cartitem && cartitem.length? '': 'cart-item-body'}`}>
           {
               cartitem && cartitem.length ? 
               

@@ -15,7 +15,8 @@ const Routes=()=>{
         <Redirect to="/home" />
       </Route>
       <Route exact path='/home' component={HomePage}/>
-      <Route exact path='/products' component={ProductPage}/>
+      {/* <Route  path='/products' component={ProductPage}/> */}
+      <Route  path={['/products']} component={ProductPage}/>
       <Route path='/login' component={Login}/>
       <Route path='/register' component={Signup}/>
     </Switch>
