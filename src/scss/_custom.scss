@@ -241,6 +241,7 @@ h5{
 
 .p-img{
   width: 100%;
+  
   @include max-width(768px){
     width: 50%;
    }
@@ -256,4 +257,9 @@ h5{
     font-size: 11px;
     visibility: visible;
    }
+  }
+
+  .error-text{
+    color:red;
+    font-weight: bold;
   }

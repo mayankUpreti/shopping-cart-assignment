@@ -12,18 +12,21 @@ const Sidebar=({category,setCategory})=>{
   return (
     <>
    
-      <div className="nav flex-column nav-pills sidebar h-100">
+      <div className="nav flex-column nav-pills sidebar h-100" tabIndex={0} aria-label='categories'>
         {
           categories && categories.map(el=>
-            <div
+            <a
             key={el.id}
+            role='button'
+            tabIndex='0'
             onClick={()=>setCategory(el.id)}
             className={`nav-link p-3 ${category===el.id?'active':''}`}
-            // activeClassName="active"
+            aria-label={el.name}
+            
           >
          
             {el.name}
-          </div>
+          </a>
             )
         }
     </div>

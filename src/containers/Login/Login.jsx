@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Form} from 'react-bootstrap'
 
 const Login=()=>{
+const [data,setData]=useState({});
+
 const handleSubmit=(e)=>{
-e.preventDefault()
+e.preventDefault();
+
+}
+
+const handleInputChange=(e)=>{
+data[e.target.name]=e.target.value;
+setData(data)
 }
 
 
@@ -18,11 +26,11 @@ e.preventDefault()
         
             <Form.Group >
             <Form.Label className='form-label'>Email</Form.Label>
-            <Form.Control type="email" className='form-input' placeholder="Email" required/>
+            <Form.Control type="email" className='form-input' onChange={handleInputChange} placeholder="Enter your Email" required/>
             </Form.Group>
             <Form.Group >
             <Form.Label className='form-label'>Password</Form.Label>
-            <Form.Control type="password" className='form-input' placeholder="Password" required/>
+            <Form.Control type="password" className='form-input' onChange={handleInputChange}  placeholder="Enter your Password" required/>
             </Form.Group>
             <button className='btn-primary btn btn-block '>Login</button>
            

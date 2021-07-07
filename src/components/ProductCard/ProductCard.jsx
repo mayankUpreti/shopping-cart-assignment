@@ -11,21 +11,21 @@ useEffect(()=>{
 
 
   return(
-   <div className='product-card'>
+   <div className='product-card' tabIndex={0}>
        <div style={{height:'80px'}} >
-       <div className='font-weight-bold mid-heading'>{data.name}</div>
+       <h3 className='font-weight-bold mid-heading' >{data.name}</h3>
        </div>
        
        <div  className='p-card'>
-           <img className='p-img' src={imageurl} alt={data.name}/>
+           <img className='p-img mr-1' src={imageurl} alt='' aria-describedby={`${data.id}`}/>
            <div className='p-desc'>
-           <div  className='sidebar text-ellipses p-3'>
+           <div  className='sidebar text-ellipses p-3' id={`${data.id}`}>
             {data.description}
            </div>
-           <button className='btn btn-primary btn-block my-1 d-view' onClick={()=>addItemToCard(data,'add')}>Buy Now @ Rs.{data.price}</button>
+           <button className='btn btn-primary btn-block mt-1 d-view' onClick={()=>addItemToCard(data,'add')}>Buy Now @ Rs.{data.price}</button>
            </div>
        </div>
-       <button className='btn btn-primary btn-block my-1 m-view' onClick={()=>addItemToCard(data,'add')}>Buy Now @ Rs.{data.price}</button>
+       <button className='btn btn-primary btn-block mt-1 m-view' onClick={()=>addItemToCard(data,'add')}>Buy Now @ Rs.{data.price}</button>
    </div>
     )
 }

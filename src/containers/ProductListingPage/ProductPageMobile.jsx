@@ -12,12 +12,12 @@ const ProductPageMobile=({products,addItemToCard,category,setCategory})=>{
   },[])
 
     return(
-        <Accordion defaultActiveKey={category} className='w-100 d-view'>
+        <Accordion defaultActiveKey={category} className='w-100 d-view' aria-label='categories' tabIndex={0}>
             {
                 categories && categories.map((el,i)=>{
                     return(
                         <Card key={el.id}  style={{border:'none'}} >
-                        <Accordion.Toggle className={`sidebar font-weight-bold my-1 ${category===el.id ?'active':''}`} as={Card.Header} eventKey={el.id} onClick={()=>setCategory(el.id)}>
+                        <Accordion.Toggle tabIndex={0} role='button' className={`sidebar font-weight-bold my-1 ${category===el.id ?'active':''}`}  as={Card.Header} eventKey={el.id} onClick={()=>setCategory(el.id)}>
                          {el.name}
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey={el.id}>

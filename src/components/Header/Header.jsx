@@ -19,12 +19,12 @@ return(
        <div className='col-md-3 d-flex flex-column justify-content-end align-items-center'>
            <div>
            <div className='d-flex'>
-               <span className='p-2' ><Link className='text-dark font-weight-bold' to="/login">Signin</Link></span>
+               <span className='p-2' ><Link className='text-dark font-weight-bold' to="/login">Sign in</Link></span>
                <span className='p-2'><Link className='text-dark font-weight-bold' to="/register">Register</Link></span>
            </div>
-           <div className='nav-cart' onClick={()=>setShow(true)} role='button' tabIndex='0' >
+           <div className='nav-cart' onClick={()=>setShow(true)} role='button' tabIndex='0' aria-labelledby='cart-items' >
                <img className='text-primary' style={{height:'40px'}} aria-hidden="true" src={CartSvg} alt='cart'/>
-              <span>{cartitem &&cartitem.length ? cartitem.reduce(((acc,curr)=>curr.quantity+acc),0):0} items</span> 
+              <span id='cart-items' >{cartitem &&cartitem.length ? cartitem.reduce(((acc,curr)=>curr.quantity+acc),0):0} items</span> 
            </div>
            </div>
        </div>
