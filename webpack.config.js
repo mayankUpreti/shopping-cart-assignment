@@ -1,10 +1,12 @@
 const path=require('path');
-
+const CompressionPlugin = require('compression-webpack-plugin');
 const HtmlWebpackPlugin=require('html-webpack-plugin');
 module.exports={
     entry:'./src/index.js',
     output: {
-        path: path.resolve(__dirname, "build")
+        path: path.resolve(__dirname, "build"),
+        filename: '[name].[chunkhash].bundle.js',
+
       },
     module:{
         rules:[
@@ -28,27 +30,52 @@ module.exports={
                 use: [
                   {
                     loader: 'url-loader',
-                    options: {
-                     
-                      limit: 8192 // in bytes
-                    },
+                  
                   },
                 ],
               },
         ]
     },
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          vendors: {
+            test: /node_modules\/(?!antd\/).*/,
+            name: "vendors",
+            chunks: "all",
+          },
+          // This can be your own design library.
+          antd: {
+            test: /node_modules\/(antd\/).*/,
+            name: "antd",
+            chunks: "all",
+          },
+        },
+      },
+      runtimeChunk: {
+        name: "manifest",
+      },
+    },
     resolve: {
         extensions: ['.js', '.jsx']
       },
-      devServer: {
+    devServer: {
         port: 3000,
         historyApiFallback: true,
         contentBase: './',
         hot: true
       },
+      performance: {
+        hints: false,
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
+    },
     plugins:[
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, "src", "index.html")
-        })
+        }),
+        new CompressionPlugin({
+          test: /\.js(\?.*)?$/i,
+        }),
     ]
 }
