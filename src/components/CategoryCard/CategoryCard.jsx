@@ -11,7 +11,7 @@ const history=useHistory()
         <div className=' align-center flex-column '>
             <h3 className='text-center font-weight-bold'>{data.name}</h3>
             <h5 className='text-center'>{data.description}</h5>
-            <button className='btn btn-primary bbkja' onClick={()=>history.push(`/products`)} >Explore {data.key}</button>
+            <button id='product-category' role='button' className='btn btn-primary ' onClick={()=>history.push(`/products`)} >Explore {data.key}</button>
         </div> 
       </div>
     )

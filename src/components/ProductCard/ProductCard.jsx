@@ -1,7 +1,8 @@
-import React, { useState,useEffect } from 'react'
-
-const ProductCard=({data,addItemToCard})=>{
-
+import React, { useState,useEffect, useContext } from 'react'
+import { ShoppingContext } from '../../context/ShoppingContext'
+import { addItemToCard } from '../../context/utils'
+const ProductCard=({data})=>{
+const {cartitem,setCartItem}=useContext(ShoppingContext)
 const [imageurl,setImageUrl]=useState('')
 
 useEffect(()=>{
@@ -9,10 +10,9 @@ useEffect(()=>{
 },[data])
 
 
-
   return(
    <div className='product-card' tabIndex={0}>
-       <div style={{height:'80px'}} >
+       <div className='product-heading' >
        <h3 className='font-weight-bold mid-heading' >{data.name}</h3>
        </div>
        
@@ -22,10 +22,10 @@ useEffect(()=>{
            <div  className='sidebar text-ellipses p-3' id={`${data.id}`}>
             {data.description}
            </div>
-           <button className='btn btn-primary btn-block mt-1 d-view' onClick={()=>addItemToCard(data,'add')}>Buy Now @ Rs.{data.price}</button>
+           <button data-testid='add-item' className='btn btn-primary btn-block mt-1 d-view' onClick={()=>addItemToCard(data,'add',cartitem,setCartItem)}>Buy Now @ Rs.{data.price}</button>
            </div>
        </div>
-       <button className='btn btn-primary btn-block mt-1 m-view' onClick={()=>addItemToCard(data,'add')}>Buy Now @ Rs.{data.price}</button>
+       <button data-testid='add-item-cart' className='btn btn-primary btn-block mt-1 m-view' onClick={()=>addItemToCard(data,'add',cartitem,setCartItem)}>Buy Now @ Rs.{data.price}</button>
    </div>
     )
 }

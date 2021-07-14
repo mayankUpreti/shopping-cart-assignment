@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-
 import { Modal,Button } from 'react-bootstrap'
 import { ShoppingContext } from '../../context/ShoppingContext';
 import CartItem from './CartItems';
@@ -7,8 +6,7 @@ import Lowest from '../../../static/images/lowest-price.png'
 
 const Cart=({show,setShow})=>{
     const handleClose = () => setShow(false);
-    const { cartitem,removeItemfromUI,
-        addItemToCard,totalamount}=useContext(ShoppingContext)
+    const { cartitem,totalamount,setCartItem}=useContext(ShoppingContext)
     return(
         <div>
             <Modal
@@ -26,7 +24,7 @@ const Cart=({show,setShow})=>{
               cartitem && cartitem.length ? 
               
               cartitem.map((el,i)=>
-              <CartItem key={el.id} data={el} addItemToCard={addItemToCard} removeItemfromUI={removeItemfromUI} />
+              <CartItem key={el.id} data={el} cartitem={cartitem} setCartItem={setCartItem} />
             
               )
               :<div className='h-100 align-center flex-column'>

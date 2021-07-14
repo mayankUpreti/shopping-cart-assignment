@@ -2,9 +2,6 @@ import React, { useEffect,useState,useContext } from 'react'
 import { fetchproducts } from '../../api/api'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import ProductCard from '../../components/ProductCard/ProductCard'
-import {useLocation,useRouteMatch} from 'react-router-dom'
-import { ShoppingContext } from '../../context/ShoppingContext'
-
 import ProductPageMobile from './ProductPageMobile'
 
 const ProductPage=()=>{
@@ -12,7 +9,6 @@ const ProductPage=()=>{
   const [category,setCategory]=useState('');
 
   const handleCategory=(el)=>{
-
     if(el===category){
       setCategory('')
     }else{
@@ -20,9 +16,6 @@ const ProductPage=()=>{
     }
 
   }
-
-  const {addItemToCard}=useContext(ShoppingContext)
-
   useEffect(async ()=>{
     const data=await fetchproducts();
     setProducts(data);
@@ -51,13 +44,13 @@ const ProductPage=()=>{
           }else return el
          }
           ).map((el,i)=>{
-         return <ProductCard data={el} key={el.id} addItemToCard={addItemToCard}/>
+         return <ProductCard data={el} key={el.id}/>
        }):<div className='align-center h-100 font-weight-bold h3'>
          No Items available
        </div>
      }
    </div>
-   <ProductPageMobile products={products} addItemToCard={addItemToCard} category={category} setCategory={handleCategory}/>
+   <ProductPageMobile products={products} category={category} setCategory={handleCategory}/>
    </div>
     )
 }

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing a custom carousel  1`] = `
+<Carousel
+  controls={true}
+  defaultActiveIndex={0}
+  fade={false}
+  indicators={true}
+  interval={5000}
+  keyboard={true}
+  nextIcon={
+    <span
+      aria-hidden="true"
+      className="carousel-control-next-icon"
+    />
+  }
+  nextLabel="Next"
+  pause="hover"
+  prevIcon={
+    <span
+      aria-hidden="true"
+      className="carousel-control-prev-icon"
+    />
+  }
+  prevLabel="Previous"
+  slide={true}
+  touch={true}
+  wrap={true}
+>
+  <CarouselItem
+    key="1212"
+  >
+    <img
+      alt="yoyo"
+      aria-label="yoyo"
+      className="d-block w-100"
+      src=""
+      tabIndex={0}
+    />
+  </CarouselItem>
+</Carousel>
+`;

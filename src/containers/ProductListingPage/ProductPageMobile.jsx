@@ -3,7 +3,7 @@ import ProductCard from '../../components/ProductCard/ProductCard';
 import { Accordion, Card } from 'react-bootstrap'
 import { fetchcategories } from '../../api/api';
 
-const ProductPageMobile=({products,addItemToCard,category,setCategory})=>{
+const ProductPageMobile=({products,category,setCategory})=>{
     const [categories,setCategories]=useState([]);
 
     useEffect(async()=>{
@@ -24,7 +24,7 @@ const ProductPageMobile=({products,addItemToCard,category,setCategory})=>{
                         <Card.Body>
                             {
                               products && products.filter(ml=>ml.category==el.id).map(ele=>
-                                <ProductCard data={ele} key={ele.id} addItemToCard={addItemToCard}/>
+                                <ProductCard data={ele} key={ele.id}/>
                                 )
                             }
                         </Card.Body>

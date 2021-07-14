@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing a custom Footer  1`] = `
+<div
+  className="footer"
+  tabIndex={0}
+>
+  Copyright © 2016-2018 Sabka Bazar Grocery Supplies Private Limited
+</div>
+`;
