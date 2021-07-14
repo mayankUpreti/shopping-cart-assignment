@@ -271,3 +271,13 @@ h5{
      height: 50px;
      }
   }
+
+  .cart-btn{
+    @extend .align-center;
+    background-color: $primary;
+    color:white;
+    padding: 0 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 3px;
+  }
