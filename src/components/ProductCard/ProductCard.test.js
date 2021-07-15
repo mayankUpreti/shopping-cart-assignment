@@ -11,7 +11,6 @@ it('testing a product card ',()=>{
     bannerImageUrl:'',
     bannerImageAlt:'yoyo',
     name:'horlics',
-    quantity:4,
     imageUrl:''
    };
    let cartitem=[{id:1212,
@@ -27,30 +26,8 @@ it('testing a product card ',()=>{
  );
  const addcart = screen.getByTestId('add-item');
  const additemcart = screen.getByTestId('add-item-cart');
- expect(addcart).toBeInTheDocument();
- expect(additemcart).toBeInTheDocument();
  userEvent.click(addcart);
  userEvent.click(additemcart);
- console.log(cartitem)
-
+ expect(addcart).toBeInTheDocument();
+ expect(additemcart).toBeInTheDocument();
 })
-
-// it('testing  button clicks for adding item ',()=>{
-//     const mockDb=[{
-//         id:1212,
-//         key:'ssdsd',
-//         name:'Tide',
-//         description:'a surf is a exccel',
-//         bannerImageUrl:'',
-//         bannerImageAlt:'yoyo',
-//         imageURL:'/'
-//     }]
- 
-//     const addItemToCard=jest.fn();
-//     const wrapper=shallow(<ProductCard data={mockDb} addItemToCard={addItemToCard} />)
-//        wrapper.find('[id="add-item"]').simulate('click')
-//        expect(addItemToCard).toBeCalled()
-//        wrapper.find('[id="add-item-cart"]').simulate('click')
-//        expect(addItemToCard).toBeCalled()
-//  })
- 

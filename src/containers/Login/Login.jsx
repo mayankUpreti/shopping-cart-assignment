@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import {Form} from 'react-bootstrap'
-
+import { useHistory } from 'react-router-dom';
 const Login=()=>{
 const [data,setData]=useState({});
+const history=useHistory();
 
 const handleSubmit=(e)=>{
 e.preventDefault();
-
+alert('You are logged in.Welcome')
+history.push('/home');
 }
 
 const handleInputChange=(e)=>{
@@ -26,7 +28,7 @@ setData(data)
         
             <Form.Group >
             <Form.Label className='form-label'>Email</Form.Label>
-            <Form.Control type="email" className='form-input' onChange={handleInputChange} placeholder="Enter your Email" required/>
+            <Form.Control type="email" className='form-input' maxLength={40} onChange={handleInputChange} placeholder="Enter your Email" required/>
             </Form.Group>
             <Form.Group >
             <Form.Label className='form-label'>Password</Form.Label>

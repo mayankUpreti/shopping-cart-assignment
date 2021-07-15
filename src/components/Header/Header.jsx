@@ -24,7 +24,7 @@ return(
            </div>
            <div className='nav-cart' onClick={()=>setShow(true)} role='button' tabIndex='0' aria-labelledby='cart-items' >
                <img className='text-primary' style={{height:'40px'}} aria-hidden="true" src={CartSvg} alt='cart'/>
-              <span id='cart-items' >{cartitem &&cartitem.length ? cartitem.reduce(((acc,curr)=>curr.quantity+acc),0):0} items</span> 
+              <span data-testid='cart-items' >{cartitem &&cartitem.length ? cartitem.reduce(((acc,curr)=>curr.quantity+acc),0):0} items</span> 
            </div>
            </div>
        </div>
